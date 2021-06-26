@@ -1,0 +1,27 @@
+{
+  "name": "annotate-inbound",
+  "version": "1.0.0",
+  "description": "Messaging application for reading inbound topics to annotation application",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alexandru11/inbound-anno.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alexandru11/inbound-anno/issues"
+  },
+  "homepage": "https://github.com/Alexandru11/inbound-anno#readme",
+  "dependencies": {
+    "@sap/xb-msg": "^0.9.12",
+    "@sap/xb-msg-amqp-v100": "^0.9.51",
+    "@sap/xb-msg-env": "^0.9.8",
+    "@sap/xsenv": "^3.1.0",
+    "mongoose": "^5.12.14"
+  }
+}

@@ -1,0 +1,24 @@
+applications:
+  - name: inbound-anno
+    buildpack: 'https://github.com/cloudfoundry/nodejs-buildpack'
+    memory: 256M
+    health-check-type: none
+    path: .
+    command: npm run start
+    services:
+      - event-mesh
+    env:
+      SAP_JWT_TRUST_ACL: '[{"clientid":"*","identityzone":"*"}]'
+      MESSAGING_SERVICE_NAME: "event-mesh"
+      XBEM_INBOUND_NEWS_API: "inboundNewsAPI"
+      RECONNECT_RETRY_MS : 5000
+      SAP_XBEM_BINDINGS: |
+        {
+          "inputs": {
+              "inboundNewsAPI": {
+                  "service": "event-mesh",
+                  "address": "queue:NEWS_EXCHANGE",
+                  "reliable": true
+              }
+          }
+        }
